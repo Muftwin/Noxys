@@ -11,7 +11,6 @@ public class Player : Sprite
 	public override void _Ready()
 	{	  
 		Godot.Sprite platform = this.GetNode<Godot.Sprite>("Platform");
-		platform.texture.get_height();
 
 		
 	}
@@ -19,7 +18,7 @@ public class Player : Sprite
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
  public override void _Process(float delta)
  {
-		float AMOUNT = 3;
+		float AMOUNT = 5;
 		if (Input.IsKeyPressed((int)KeyList.W))
 		{
 			this.Position += new Vector2(0, -AMOUNT);
