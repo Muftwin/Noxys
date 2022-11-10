@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Noxys"
+config/name="Intro"
 config/icon="res://icon.png"
 
 [gui]
@@ -19,7 +19,7 @@ common/drop_mouse_on_gui_input_disabled=true
 
 [mono]
 
-project/assembly_name="Noxys"
+project/assembly_name="Intro"
 
 [physics]
 
