@@ -1,3 +1,4 @@
+using System;
 using Godot;
 public class Player : KinematicBody2D
 {
@@ -6,6 +7,7 @@ public class Player : KinematicBody2D
 
 	int facing = 1; //1 for right -1 for left
 	public Character character = Character.ADOL;
+	Godot.Sprite plrsprite;
 
 	public const float INITIAL_GRAVITY = 5f;
 	public float gravity;
@@ -24,6 +26,8 @@ public class Player : KinematicBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		plrsprite = this.GetNode<Godot.Sprite>("plrsprite");
+
 		gravity = INITIAL_GRAVITY;
 
 		reload[0] = this.Position.x;
@@ -35,7 +39,6 @@ public class Player : KinematicBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		Godot.Sprite plrsprite = this.GetNode<Godot.Sprite>("plrsprite");
 		float AMOUNT = 2;
 		plrsprite.GlobalPosition = new Vector2(this.Position.x, this.Position.y);
 		MoveAndCollide(new Vector2(0, gravity));
@@ -86,6 +89,10 @@ public class Player : KinematicBody2D
 		bat.passive();
 	}
 
+	public void setSprite(String path)
+	{
+		plrsprite.Texture = ResourceLoader.Load(path) as Texture;
+	}
 }
 
 

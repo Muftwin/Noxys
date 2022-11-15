@@ -15,6 +15,7 @@ public class Bat : Ability
             return false;
 
         player.character = Player.Character.BAT;
+        player.setSprite("bat.png");
         currentTransform = true;
         return true;
     }
