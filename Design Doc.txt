@@ -1,0 +1,47 @@
+==Abilities
+	Bat
+		Transform: Up
+		-Fall slowly when pressing up.
+		-Turn around while activating to gain a speed multiplier
+		Attack: Shadow Ball
+		-Create a projectile that copies your current speed.
+		-Can travel through walls?
+		-Can teleport to with wizard power.
+	Cat
+		Transform: Touch wall with upward ySpeed
+		-Climb walls
+		-Wall Jump?
+		Attack: Cat Dive
+		-Fall at 45 degrees
+		-Press attack again when touching enemy to deal damage
+	Bull
+		Transform: Shift
+		-Dash horizontally at constant speed slightly higher than max walking speed
+		Attack: Quake Hammer
+		-Strike the ground creating an earthquake that hits all enemies touching that ground.
+		-Use while dashing to temporarily stop
+		-Up strike?
+	Wizard
+		Transform: Down
+		-Fast fall entering the ground like the game "The Sun and Moon"
+		Attack: Telefrag
+		-Instantly teleport to and kill closest enemy within range
+	Doll
+		Transform: C
+		-Enter another dimension. Some things only appear/disappear in this dimension
+		-1% speed boost
+		Attack: Spear Drop
+		-A spear appears near the top of the screen above you. You can rotate it by moving. When you release it falls in the direction it faces.
+	Adol
+		Transform: Activate grapple point. Charge attack? Z?
+		-Can use grapple point like Spectre of Torment, but 360 degrees?
+		Attack: Sword?
+		-Like Hollow Knight nail?
+		-Parry?
+
+==Obstacles
+	Important:
+		Kill Door
+		-Version 1 moves when a certain number of enemies are killed
+		-Version 2 moves when a specific enemy is killed
+	Other:
