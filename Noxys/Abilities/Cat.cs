@@ -1,10 +1,10 @@
 using Godot;
-public class Bat : Ability
+public class Cat : Ability
 {
     Player player;
     bool enabled = true; //allowed to use at all
     bool currentTransform = false; //currently using
-    public Bat(Player player)
+    public Cat(Player player)
     {
         this.player = player;
     }
@@ -14,8 +14,8 @@ public class Bat : Ability
         if (!enabled)
             return false;
 
-        player.character = Player.Character.BAT;
-        player.setSprite("bat.png");
+        player.character = Player.Character.CAT;
+        player.setSprite("cat.png");
         currentTransform = true;
         return true;
     }
@@ -24,9 +24,5 @@ public class Bat : Ability
         if (!enabled || !currentTransform)
             return;
 
-        if (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W))
-            player.gravity = 1f;
-        else
-            player.gravity = 5f;
     }
 }
