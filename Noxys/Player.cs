@@ -5,9 +5,9 @@ public class Player : KinematicBody2D
 	[Signal]
 	public delegate void Collide();
 
-	int facing = 1; //1 for right -1 for left
+	public int facing = 1; //1 for right -1 for left
 	public Character character = Character.ADOL;
-	Godot.Sprite plrsprite;
+	public Godot.Sprite plrsprite;
 	CircleShape2D circle = new CircleShape2D();
 	public const float INITIAL_GRAVITY = 5f;
 	public float gravity;
@@ -38,42 +38,62 @@ public class Player : KinematicBody2D
 		bull = new Bull(this);
 	}
 
-	public override void _Process(float delta)
+	public void setSprite(String path)
+	{
+		plrsprite.Texture = ResourceLoader.Load(path) as Texture;
+	}
+
+	[Export] public int RunSpeed = 150;
+	[Export] public int JumpSpeed = -400;
+	[Export] public int Gravity = 800;
+
+	public Vector2 velocity = new Vector2();
+	bool jumping = false;
+
+	public void GetInput()
+	{
+		velocity.x = 0;
+		bool right = Input.IsActionPressed("ui_right");
+		bool left = Input.IsActionPressed("ui_left");
+		bool jump = Input.IsActionPressed("ui_select");
+
+		if (jump && IsOnFloor())
+		{
+			jumping = true;
+			velocity.y = JumpSpeed;
+		}
+
+		if (right)
+		{
+			velocity.x += RunSpeed;
+			facing = 1;
+		}
+		if (left)
+		{
+			velocity.x -= RunSpeed;
+			facing = -1;
+		}
+	}
+
+	public override void _PhysicsProcess(float delta)
 	{
 		circle.Draw(this.GetCanvasItem(), Color.FromHsv(10, 10, 10, 0.5f));
 		plrsprite.GlobalPosition = new Vector2(this.Position.x, this.Position.y);
+
+		GetInput();
+
+		velocity.y += Gravity * delta;
+		if (bat.slowFall && velocity.y > 0)
+			velocity.y /= 1.25f;
+
+		if (jumping && IsOnFloor())
+			jumping = false;
+		velocity = MoveAndSlide(velocity, new Vector2(0, -1));
 
 		if (bull.dashing)
 		{
 			MoveAndCollide(new Vector2(5 * facing, 0));
 		}
-		else
-		{
-			MoveAndCollide(new Vector2(0, gravity));
-			if (Input.IsKeyPressed((int)KeyList.Left) || Input.IsKeyPressed((int)KeyList.A))
-			{
-				MoveAndCollide(new Vector2(-2, 0));
-				facing = -1;
-			}
-			if (Input.IsKeyPressed((int)KeyList.Right) || Input.IsKeyPressed((int)KeyList.D))
-			{
-				MoveAndCollide(new Vector2(2, 0));
-				facing = 1;
-			}
-			this.MoveAndSlide(new Vector2(0, 1));
-			if (Input.IsKeyPressed((int)KeyList.Space) && this.IsOnFloor())
-			{
-				MoveAndCollide(new Vector2(0, -10));
-			}
-		}
-		//temporary restart
-		if (Input.IsKeyPressed((int)KeyList.R))
-		{
-			this.Position = new Vector2(reload[0], reload[1]);
-		}
-
-
-		//transform into bat
 		if (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W))
 		{
 			bat.transform();
@@ -86,11 +106,12 @@ public class Player : KinematicBody2D
 		bat.passive();
 		cat.passive();
 		bull.passive(delta);
-	}
 
-	public void setSprite(String path)
-	{
-		plrsprite.Texture = ResourceLoader.Load(path) as Texture;
+		//temp reset
+		if (Input.IsKeyPressed((int)KeyList.R))
+		{
+			this.Position = new Vector2(reload[0], reload[1]);
+		}
 	}
 }
 

@@ -4,6 +4,9 @@ public class Bat : Ability
     Player player;
     bool enabled = true; //allowed to use at all
     bool currentTransform = false; //currently using
+
+    public bool slowFall = false;
+
     public Bat(Player player)
     {
         this.player = player;
@@ -21,12 +24,15 @@ public class Bat : Ability
     }
     public void passive()
     {
+        slowFall = (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W));
+        player.plrsprite.Rotation = 0; //this is dumb?
+
         if (!enabled || !currentTransform)
             return;
 
-        if (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W))
-            player.gravity = 1f;
-        else
-            player.gravity = 5f;
+        if (player.velocity.x != 0)
+            player.plrsprite.Rotation = -100 * player.facing;
+
+
     }
 }
