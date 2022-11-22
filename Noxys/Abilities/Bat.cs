@@ -30,7 +30,7 @@ public class Bat : Ability
         if (!enabled || !currentTransform)
             return;
 
-        if (player.velocity.x != 0)
+        if (player.speed.x != 0)
             player.plrsprite.Rotation = -100 * player.facing;
 
 

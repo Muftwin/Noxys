@@ -2,117 +2,129 @@ using System;
 using Godot;
 public class Player : KinematicBody2D
 {
-	[Signal]
-	public delegate void Collide();
+    [Signal]
+    public delegate void Collide();
 
-	public int facing = 1; //1 for right -1 for left
-	public Character character = Character.ADOL;
-	public Godot.Sprite plrsprite;
-	CircleShape2D circle = new CircleShape2D();
-	public const float INITIAL_GRAVITY = 5f;
-	public float gravity;
+    public int facing = 1; //1 for right -1 for left
+    public Character character = Character.ADOL;
+    public Godot.Sprite plrsprite;
 
-	float[] reload = new float[2];
+    public const float INITIAL_GRAVITY = 5f;
+    public float gravity;
 
-	Bat bat;
-	Cat cat;
-	Bull bull;
+    float[] reload = new float[2];
 
-	public enum Character
-	{
-		ADOL, CAT, BAT, BULL, DOLL, WIZARD
-	}
+    Bat bat;
+    Cat cat;
+    Bull bull;
 
-	public override void _Ready()
-	{
-		plrsprite = this.GetNode<Godot.Sprite>("plrsprite");
-		circle.Radius = 8;
+    public enum Character
+    {
+        ADOL, CAT, BAT, BULL, DOLL, WIZARD
+    }
 
-		gravity = INITIAL_GRAVITY;
+    public override void _Ready()
+    {
+        plrsprite = this.GetNode<Godot.Sprite>("plrsprite");
 
-		reload[0] = this.Position.x;
-		reload[1] = this.Position.y;
+        gravity = INITIAL_GRAVITY;
 
-		bat = new Bat(this);
-		cat = new Cat(this);
-		bull = new Bull(this);
-	}
+        reload[0] = this.Position.x;
+        reload[1] = this.Position.y;
 
-	public void setSprite(String path)
-	{
-		plrsprite.Texture = ResourceLoader.Load(path) as Texture;
-	}
+        bat = new Bat(this);
+        cat = new Cat(this);
+        bull = new Bull(this);
+    }
 
-	[Export] public int RunSpeed = 150;
-	[Export] public int JumpSpeed = -400;
-	[Export] public int Gravity = 800;
+    public void setSprite(String path)
+    {
+        plrsprite.Texture = ResourceLoader.Load(path) as Texture;
+    }
 
-	public Vector2 velocity = new Vector2();
-	bool jumping = false;
+    [Export] public int maxWalkSpeed = 350;
+    int walkIncrement = 10;
+    int slowIncrement = 50;
 
-	public void GetInput()
-	{
-		velocity.x = 0;
-		bool right = Input.IsActionPressed("ui_right");
-		bool left = Input.IsActionPressed("ui_left");
-		bool jump = Input.IsActionPressed("ui_select");
+    [Export] public int JumpSpeed = -350;
+    [Export] public int Gravity = 500;
 
-		if (jump && IsOnFloor())
-		{
-			jumping = true;
-			velocity.y = JumpSpeed;
-		}
+    public Vector2 speed = new Vector2();
+    bool jumping = false;
 
-		if (right)
-		{
-			velocity.x += RunSpeed;
-			facing = 1;
-		}
-		if (left)
-		{
-			velocity.x -= RunSpeed;
-			facing = -1;
-		}
-	}
+    public void GetInput()
+    {
+        bool right = Input.IsActionPressed("ui_right");
+        bool left = Input.IsActionPressed("ui_left");
+        bool jump = Input.IsActionPressed("ui_select");
 
-	public override void _PhysicsProcess(float delta)
-	{
-		circle.Draw(this.GetCanvasItem(), Color.FromHsv(10, 10, 10, 0.5f));
-		plrsprite.GlobalPosition = new Vector2(this.Position.x, this.Position.y);
+        if (jump && IsOnFloor())
+        {
+            jumping = true;
+            speed.y = JumpSpeed;
+        }
 
-		GetInput();
+        if (right)
+        {
+            if (speed.x >= 0)
+                speed.x = Math.Min(speed.x + walkIncrement, maxWalkSpeed);
+            else //if you were going left slow down faster
+                speed.x = Math.Min(speed.x + slowIncrement, maxWalkSpeed);
+            facing = 1;
+        }
+        if (left)
+        {
+            if (speed.x <= 0)
+                speed.x = Math.Max(speed.x - walkIncrement, -maxWalkSpeed);
+            else
+                speed.x = Math.Max(speed.x - slowIncrement, -maxWalkSpeed);
+            facing = -1;
+        }
+        if (!right && !left)
+        {
+            if (speed.x < 0)
+                speed.x = Math.Min(0, speed.x + slowIncrement);
+            else if (speed.x > 0)
+                speed.x = Math.Max(0, speed.x - slowIncrement);
+        }
+    }
 
-		velocity.y += Gravity * delta;
-		if (bat.slowFall && velocity.y > 0)
-			velocity.y /= 1.25f;
+    public override void _PhysicsProcess(float delta)
+    {
 
-		if (jumping && IsOnFloor())
-			jumping = false;
-		velocity = MoveAndSlide(velocity, new Vector2(0, -1));
+        GetInput();
 
-		if (bull.dashing)
-		{
-			MoveAndCollide(new Vector2(5 * facing, 0));
-		}
-		if (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W))
-		{
-			bat.transform();
-		}
-		if (Input.IsKeyPressed((int)KeyList.Shift))
-		{
-			bull.transform();
-		}
+        speed.y += Gravity * delta;
+        if (bat.slowFall && speed.y > 0)
+            speed.y /= 1.25f;
 
-		bat.passive();
-		cat.passive();
-		bull.passive(delta);
+        if (jumping && IsOnFloor())
+            jumping = false;
+        speed = MoveAndSlide(speed, new Vector2(0, -1));
 
-		//temp reset
-		if (Input.IsKeyPressed((int)KeyList.R))
-		{
-			this.Position = new Vector2(reload[0], reload[1]);
-		}
-	}
+        if (bull.dashing)
+        {
+            MoveAndCollide(new Vector2(5 * facing, 0));
+        }
+        if (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W))
+        {
+            bat.transform();
+        }
+        if (Input.IsKeyPressed((int)KeyList.Shift))
+        {
+            bull.transform();
+        }
+
+        bat.passive();
+        cat.passive();
+        bull.passive(delta);
+
+        //temp reset
+        if (Input.IsKeyPressed((int)KeyList.R))
+        {
+            this.Position = new Vector2(reload[0], reload[1]);
+        }
+    }
 }
 
 
