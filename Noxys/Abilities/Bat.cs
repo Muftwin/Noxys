@@ -25,13 +25,13 @@ public class Bat : Ability
     public void passive()
     {
         slowFall = (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W));
-        player.plrsprite.Rotation = 0; //this is dumb?
+        player.sprite.Rotation = 0; //this is dumb?
 
         if (!enabled || !currentTransform)
             return;
 
         if (player.speed.x != 0)
-            player.plrsprite.Rotation = -100 * player.facing;
+            player.sprite.Rotation = -100 * player.facing;
 
 
     }
