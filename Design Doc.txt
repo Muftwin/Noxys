@@ -24,6 +24,7 @@
 	Wizard
 		Transform: Down
 		-Fast fall entering the ground like the game "The Sun and Moon"
+		-Fast fall coyote jump tech
 		Attack: Telefrag
 		-Instantly teleport to and kill closest enemy within range
 	Doll
@@ -38,10 +39,21 @@
 		Attack: Sword?
 		-Like Hollow Knight nail?
 		-Parry?
+	
+	Ideas:
+		Coyote
+		Fireball
+		
 
 ==Obstacles
 	Important:
 		Kill Door
 		-Version 1 moves when a certain number of enemies are killed
 		-Version 2 moves when a specific enemy is killed
+		Instakill Spikes
 	Other:
+		Fan
+		-Blows you especially hard if you are bat
+		Arrows
+		Conveyors
+		Breakable Walls
