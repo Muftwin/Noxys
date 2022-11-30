@@ -1,19 +1,45 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Sight.cs" type="Script" id=1]
+[ext_resource path="res://Assets/Jumper.png" type="Texture" id=2]
+[ext_resource path="res://Enemy.cs" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.5, 19.5 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.0
+height = 7.0
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0
 
 [node name="Enemy" type="RigidBody2D"]
-position = Vector2( 448, 280 )
+mode = 2
+mass = 5.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Sight" type="Area2D" parent="Sprite"]
+scale = Vector2( 0.5, 0.5 )
+collision_mask = 3
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Sight"]
+scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Sprite/Sight" to="." method="_on_Sight_body_entered"]
