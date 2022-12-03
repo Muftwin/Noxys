@@ -43,6 +43,7 @@
 	Ideas:
 		Coyote
 		Fireball
+		Skeleton/Skull
 		
 
 ==Obstacles
@@ -51,9 +52,32 @@
 		-Version 1 moves when a certain number of enemies are killed
 		-Version 2 moves when a specific enemy is killed
 		Instakill Spikes
+		Win Zone
+		-This should be something cool. I have a selection of trophies, but I don't think its cool enough.
+		Checkpoint
+		Character auto-switcher/enabler/card
 	Other:
 		Fan
 		-Blows you especially hard if you are bat
 		Arrows
 		Conveyors
 		Breakable Walls
+
+==Boss
+	Darling Darbles
+		Phase 1
+			-Darling flys up and down across the right side of the screen
+			-Use bat to dodge giant acorns thrown at you
+			-Darling dives scrolling the screen, but not often enough that you can free fall, or so often that you can full slow fall.
+		Phase 2
+			-Darling flys back and forth across the top of the screen
+			-Walk left and right to dodge giant acorns thrown at you
+			-Dash to reach the other half of the screen dodging the giant peanut that falls from the top
+			-Darling sometimes swoops or flys across the bottom giving you a chance to get a hammer hit?
+		Phase Transition
+			-Darling throws a giant spinning acorn across the screen. You can reflect it or dodge it.
+			-Use Adol to reflect it in hard mode?
+		Phase 3
+			-Darling flys in the middle of the screen left and right as a circle of nuts rotates around him
+			-The circle of nuts also increase and decreases radius
+			-Use cat to climb up on either side of the screen and cat dive to hit
