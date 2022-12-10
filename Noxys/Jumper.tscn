@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sight.cs" type="Script" id=1]
+[ext_resource path="res://Assets/Jumper.png" type="Texture" id=2]
+[ext_resource path="res://Jumper.cs" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 26.5, 34.5 )
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 54.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 29.5, 36.5 )
+
+[node name="Jumper" type="KinematicBody2D"]
+position = Vector2( 0, 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Enemybody" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, -0.5 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1, 0.5 )
+scale = Vector2( 2.57143, 2.67857 )
+texture = ExtResource( 2 )
+
+[node name="Sight" type="Area2D" parent="Sprite"]
+position = Vector2( 0.388889, -0.167446 )
+scale = Vector2( 0.388889, 0.373333 )
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/Sight"]
+position = Vector2( -1, -0.0514841 )
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2( -1, 0 )
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0.5, -0.5 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Sprite/Sight" to="." method="_on_Sight_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
