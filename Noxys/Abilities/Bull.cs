@@ -21,8 +21,11 @@ public class Bull : Ability
         if (!enabled)
             return false;
 
-        if (!cooldown) //you can still transform on cooldown
+        if (!cooldown)
+        { //you can still transform on cooldown
             dashing = true;
+            this.player.inputBuffer.usedTheShiftToDashAlready = true;
+        }
 
         player.character = Player.Character.BULL;
         player.setSprite("cow.png");

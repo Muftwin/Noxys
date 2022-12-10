@@ -1,44 +1,57 @@
 using Godot;
 public class InputBuffer
 {
-	bool spaceWasDown = false;
+    //bool spaceWasDown = false;
 
-	public float spaceLastUp;
-	public float spaceLastDown;
+    public float spaceLastUp;
+    public float spaceLastDown = 999999f;
 
-	public bool usedTheSpaceToJumpAlready = false;
+    public bool usedTheSpaceToJumpAlready = false;
 
-	public float lastOnTheFloor;
-	public float yCoordinateLastOnTheFloor;
+    public float shiftLastUp;
+    public float shiftLastDown = 999999f;
 
-	public float leftLastUp;
-	public float rightLastUp;
-	public bool leftMoreRecentThanRight; //Assuming you are pressing left
+    public bool usedTheShiftToDashAlready = false;
 
-	public void update(float delta)
-	{
-		spaceLastUp += delta;
-		spaceLastDown += delta;
+    public float lastOnTheFloor = 999999f;
+    public float yCoordinateLastOnTheFloor;
 
-		lastOnTheFloor += delta;
+    public float leftLastUp;
+    public float rightLastUp;
+    public bool leftMoreRecentThanRight; //Assuming you are pressing left
 
-		if (Input.IsKeyPressed((int)KeyList.Space))
-			spaceLastDown = 0;
-		else
-		{
-			spaceLastUp = 0;
-			usedTheSpaceToJumpAlready = false;
-		}
+    public void update(float delta)
+    {
+        spaceLastUp += delta;
+        spaceLastDown += delta;
+        if (Input.IsKeyPressed((int)KeyList.Space))
+            spaceLastDown = 0;
+        else
+        {
+            spaceLastUp = 0;
+            usedTheSpaceToJumpAlready = false;
+        }
 
-		leftLastUp += delta;
-		rightLastUp += delta;
-		if (!Input.IsKeyPressed((int)KeyList.Left))
-			leftLastUp = 0;
-		if (!Input.IsKeyPressed((int)KeyList.Right))
-			rightLastUp = 0;
+        shiftLastUp += delta;
+        shiftLastDown += delta;
+        if (Input.IsKeyPressed((int)KeyList.Shift))
+            shiftLastDown = 0;
+        else
+        {
+            shiftLastUp = 0;
+            usedTheShiftToDashAlready = false;
+        }
 
-		leftMoreRecentThanRight = leftLastUp < rightLastUp;
+        lastOnTheFloor += delta;
+        leftLastUp += delta;
+        rightLastUp += delta;
+        if (!Input.IsKeyPressed((int)KeyList.Left))
+            leftLastUp = 0;
+        if (!Input.IsKeyPressed((int)KeyList.Right))
+            rightLastUp = 0;
 
-		spaceWasDown = Input.IsKeyPressed((int)KeyList.Space); //do this last so we can check if it changed next time //do i actually need this?
-	}
+        leftMoreRecentThanRight = leftLastUp < rightLastUp;
+
+        //spaceWasDown = Input.IsKeyPressed((int)KeyList.Space); //do this last so we can check if it changed next time //do i actually need this?
+    }
 }

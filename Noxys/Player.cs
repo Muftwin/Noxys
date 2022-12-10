@@ -4,22 +4,24 @@ public class Player : KinematicBody2D
 {
 	[Signal]
 	public delegate void Collide();
-public bool dead = false;
+	[Signal]
+	public delegate void Hit();
+
+	public bool dead = false;
 	public int facing = 1; //1 for right -1 for left
 	public Character character = Character.ADOL;
 	public Godot.Sprite sprite;
 	public Vector2 speed = new Vector2();
+	public InputBuffer inputBuffer = new InputBuffer();
 
+	[Export] public int gravity = 500;
 	[Export] public int maxWalkSpeed = 350;
 	[Export] int walkIncrement = 10;
 	[Export] int slowIncrement = 50;
 	[Export] public int JumpSpeed = -350;
 	[Export] public float jumpBufferLength = 0.5f;
 	[Export] public float coyoteTimeLength = 7.5f;
-
-	public const float INITIAL_GRAVITY = 5f;
-	public float gravity = INITIAL_GRAVITY; //delete this I don't need 2 gravitys
-	public int Gravity = 500;
+	[Export] public float dashBufferLength = 0.65f;
 
 	float[] spawn = new float[2];
 
@@ -27,17 +29,15 @@ public bool dead = false;
 	Cat cat;
 	Bull bull;
 
-	InputBuffer inputBuffer = new InputBuffer();
-
 	public enum Character
 	{
-		ADOL, CAT, BAT, BULL, DOLL, WIZARD
+		ADOL, CAT, BAT, BULL, DOLL, WIZARD, SKULL
 	}
 
 	public override void _Ready()
 	{
 		sprite = this.GetNode<Godot.Sprite>("plrsprite");
-this.Connect("Collide",GetNode<Node>("Enemy"),"PlayerHit");
+
 		spawn[0] = this.Position.x;
 		spawn[1] = this.Position.y;
 
@@ -48,18 +48,18 @@ this.Connect("Collide",GetNode<Node>("Enemy"),"PlayerHit");
 
 	public override void _PhysicsProcess(float delta)
 	{
-		if(dead)
-	{
-		if (Input.IsKeyPressed((int)KeyList.R))
+		inputBuffer.update(delta);
+		if (Input.IsKeyPressed((int)KeyList.R)) //temp reset
 		{
 			this.Position = new Vector2(spawn[0], spawn[1]);
 			setSprite("res://bat.png");
 			dead = false;
+			inputBuffer = new InputBuffer();
 			return;
 		}
-					return;
-	}
-		inputBuffer.update(delta);
+
+		if (dead)
+			return;
 
 		bool jump = (inputBuffer.spaceLastDown <= jumpBufferLength * delta && !inputBuffer.usedTheSpaceToJumpAlready && IsOnFloor());
 		bool coyoteJump = (inputBuffer.spaceLastDown <= jumpBufferLength * delta && coyoteTimeLength * delta >= inputBuffer.lastOnTheFloor && this.Position.y >= inputBuffer.yCoordinateLastOnTheFloor);
@@ -96,7 +96,7 @@ this.Connect("Collide",GetNode<Node>("Enemy"),"PlayerHit");
 				speed.x = Math.Max(0, speed.x - slowIncrement);
 		}
 
-		speed.y += Gravity * delta;
+		speed.y += gravity * delta;
 		if (bat.slowFall && speed.y > 0)
 			speed.y /= 1.25f;
 
@@ -120,7 +120,7 @@ this.Connect("Collide",GetNode<Node>("Enemy"),"PlayerHit");
 		{
 			bat.transform();
 		}
-		if (Input.IsKeyPressed((int)KeyList.Shift))
+		if (inputBuffer.shiftLastDown <= dashBufferLength /* * delta */ && !inputBuffer.usedTheShiftToDashAlready)
 		{
 			bull.transform();
 		}
@@ -141,22 +141,15 @@ this.Connect("Collide",GetNode<Node>("Enemy"),"PlayerHit");
 		sprite.Texture = ResourceLoader.Load(path) as Texture;
 	}
 
-
-
-
-
-
-
-
-public void _on_Enemy_Hit()
-{
-
-	setSprite("res://skeleton.png");
-	GD.Print("Game Over");
-	dead = true;
-	
-
-}
+	public void _on_Enemy_body_entered(PhysicsBody2D body) //delete this?
+	{
+		if (body.Name == "Player")
+		{
+			setSprite("res://skeleton.png");
+			GD.Print("Game Over");
+			dead = true;
+		}
+	}
 }
 
 
