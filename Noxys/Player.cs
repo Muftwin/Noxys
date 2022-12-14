@@ -124,6 +124,17 @@ public class Player : KinematicBody2D
 		{
 			bull.transform();
 		}
+		//temp attack
+		if (Input.IsKeyPressed((int)KeyList.X))
+		{
+			PackedScene bulletScene = GD.Load<PackedScene>("res://shadowbullet.tscn");
+
+			Bullet bullet = (Bullet)bulletScene.Instance();
+			bullet.Position = new Vector2(200, 200);
+			bullet.Rotation = Mathf.Deg2Rad(40);
+
+			bullet.LaunchBullet();
+		}
 
 		bat.passive();
 		cat.passive();
