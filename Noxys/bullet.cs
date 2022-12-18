@@ -1,23 +1,52 @@
 using Godot;
 
-public class Bullet : RigidBody2D
+public class Bullet : KinematicBody2D
 {
-    public float MaxDistance = 800; // How far (in pixels) the bullet will travel before it is destroyed
-    public float ImpulseMag = 1200; // How much impulse to give the bullet when it is launched
+	public float MaxDistance = 800;
+	private Vector2 originalPos;
 
-    private Vector2 originalPos;
+	public int facing;
+	public Vector2 speed = new Vector2();
 
-    public override void _PhysicsProcess(float delta)
-    {
-        float distanceTravelled = this.Position.DistanceTo(this.originalPos);
-        if (distanceTravelled > this.MaxDistance)
-            this.QueueFree();
-    }
+	public Style style;
 
-    public void LaunchBullet()
-    {
-        this.originalPos = this.Position;
+	public float lifeTime = 0;
+	public float maxLifeTime = 10;
 
-        this.ApplyCentralImpulse(this.Transform.x.Normalized() * this.ImpulseMag); // apply an impulse in the same direction that the bullet is facing
-    }
+	public override void _PhysicsProcess(float delta)
+	{
+		lifeTime += delta;
+		if (style == Style.preset1)
+			updatePreset1();
+
+		MoveAndSlide(speed);
+
+		if (lifeTime > maxLifeTime)
+			this.QueueFree();
+	}
+
+	public enum Style
+	{
+		preset1, preset2
+	}
+
+	public void setPreset1(int facing)
+	{
+		style = Style.preset1;
+		this.facing = facing;
+		speed.x = facing * 50;
+
+	}
+
+	public void updatePreset1()
+	{
+		speed.x = facing * 100 * Mathf.Sin(lifeTime);
+		speed.y = facing * 100 * Mathf.Cos(lifeTime);
+	}
+
+	public void setPreset2()
+	{
+		style = Style.preset2;
+	}
+
 }
