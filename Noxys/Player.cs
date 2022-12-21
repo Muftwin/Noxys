@@ -24,6 +24,7 @@ public class Player : KinematicBody2D
 	[Export] public float dashBufferLength = 0.65f;
 
 	float[] spawn = new float[2];
+	Vector2 UP = new Vector2(0, -1);
 
 	Bat bat;
 	Cat cat;
@@ -106,16 +107,22 @@ public class Player : KinematicBody2D
 			inputBuffer.yCoordinateLastOnTheFloor = this.Position.y;
 		}
 
+		//movement
 		if (bull.dashing)
 		{
 			speed.y = 0;
-			MoveAndSlide(new Vector2(500 * facing, 0));
+			MoveAndSlide(new Vector2(500 * facing, 0), UP);
+		}
+		else if (cat.climbing)
+		{
+			speed = MoveAndSlide(new Vector2(speed.x, -50), UP);
 		}
 		else
 		{
-			speed = MoveAndSlide(speed, new Vector2(0, -1)); //gravity
+			speed = MoveAndSlide(speed, UP); //gravity
 		}
 
+		//transforming
 		if (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W))
 		{
 			bat.transform();
@@ -124,6 +131,11 @@ public class Player : KinematicBody2D
 		{
 			bull.transform();
 		}
+		if (IsOnWall())
+		{
+			cat.transform();
+		}
+
 		//temp attack
 		if (Input.IsKeyPressed((int)KeyList.X))
 		{

@@ -4,25 +4,26 @@ public class Cat : Ability
     Player player;
     bool enabled = true; //allowed to use at all
     bool currentTransform = false; //currently using
+
+    public bool climbing = false;
     public Cat(Player player)
     {
         this.player = player;
     }
 
-    public bool transform()
+    public void transform()
     {
-        if (!enabled)
-            return false;
+        if (!enabled) return;
 
         player.character = Player.Character.CAT;
         player.setSprite("cat.png");
         currentTransform = true;
-        return true;
     }
     public void passive()
     {
-        if (!enabled || !currentTransform)
-            return;
+        if (!enabled || !currentTransform) return;
+
+        climbing = (player.IsOnWall() && player.speed.y <= 0);
 
     }
 }
