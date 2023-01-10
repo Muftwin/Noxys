@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Owner\\Documents\\Noxys\\Noxys\\Noxys\\Noxys.csproj": {}
+    "D:\\Godot\\Projects\\Noxys\\Noxys\\Noxys.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Owner\\Documents\\Noxys\\Noxys\\Noxys\\Noxys.csproj": {
+    "D:\\Godot\\Projects\\Noxys\\Noxys\\Noxys.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Owner\\Documents\\Noxys\\Noxys\\Noxys\\Noxys.csproj",
+        "projectUniqueName": "D:\\Godot\\Projects\\Noxys\\Noxys\\Noxys.csproj",
         "projectName": "Noxys",
-        "projectPath": "C:\\Users\\Owner\\Documents\\Noxys\\Noxys\\Noxys\\Noxys.csproj",
-        "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Owner\\Documents\\Noxys\\Noxys\\Noxys\\.mono\\temp\\obj\\",
+        "projectPath": "D:\\Godot\\Projects\\Noxys\\Noxys\\Noxys.csproj",
+        "packagesPath": "C:\\Users\\Cobykys\\.nuget\\packages\\",
+        "outputPath": "D:\\Godot\\Projects\\Noxys\\Noxys\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cobykys\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -44,7 +46,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

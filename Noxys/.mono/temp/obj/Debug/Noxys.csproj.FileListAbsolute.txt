@@ -7,3 +7,12 @@ C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.AssemblyIn
 C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.dll
 C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.pdb
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\bin\Debug\Noxys.dll
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\bin\Debug\Noxys.pdb
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.csproj.AssemblyReference.cache
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.GeneratedMSBuildEditorConfig.editorconfig
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.AssemblyInfoInputs.cache
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.AssemblyInfo.cs
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.csproj.CoreCompileInputs.cache
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.dll
+D:\Godot\Projects\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.pdb

@@ -1,30 +1,46 @@
 using Godot;
 using System;
 
-public class Puffball : Area2D
+public class Puffball : RigidBody2D
 {
-AnimatedSprite animatedSprite;
-
+	AnimationPlayer animPlayer;
+	Particles2D particles;
+	Sprite sprite;
 	public override void _Ready()
 	{
+		animPlayer = (AnimationPlayer)GetNode("AnimationPlayer");
+		particles = (Particles2D)GetNode("Particles2D");
+		sprite = (Sprite)GetNode("Sprite");
 
-				animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
-						animatedSprite.Play();
+		animPlayer.Play("idle");
+	}
+	private void _on_Hitbox_PlayerHit()
+	{
+		PopAndDestroy();
+
+	}
+	private void HitTilemap(object body)
+	{
+		PopAndDestroy();
+
 	}
 
-
-public override void _Process(float delta)
- {
-
-this.Position += new Vector2(0,200*delta);
- }
- public void _on_Puffball_body_entered(PhysicsBody2D body)
-{
-	if(body.Name == "Player")
+	private async void PopAndDestroy()
 	{
-this.QueueFree();
-EmitSignal("Hit");
-}
+		Sleeping = true;
+		sprite.Visible = false;
+		particles.Emitting = true;
+		Timer timer = new Timer();
+		timer.WaitTime = 1;
+		AddChild(timer);
+		timer.Start();
+		await ToSignal(timer, "timeout");
+		QueueFree();
+	}
 }
 
-}
+
+
+
+
+
