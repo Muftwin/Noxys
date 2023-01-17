@@ -138,7 +138,7 @@ public partial class Player : CharacterBody2D
         if (Input.IsKeyPressed(Key.X))
         {
             PackedScene bulletScene = GD.Load<PackedScene>("res://shadowbullet.tscn");
-            Bullet bullet = (Bullet)bulletScene.Instantiate();
+            var bullet = bulletScene.Instantiate<Bullet>();
             Owner.AddChild(bullet);
 
             bullet.Position = Position; //new Vector2(Position.x, Position.y);
