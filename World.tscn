@@ -1089,6 +1089,7 @@ texture_region_size = Vector2i(32, 32)
 0:0/7/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
 
 [sub_resource type="TileSet" id="6"]
+tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xjtwa")
 sources/1 = SubResource("TileSetAtlasSource_uquap")
