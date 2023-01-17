@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-
-public class World : Node
+public partial class World3D : Node
 {
 	[Export]
 	public PackedScene EnemyScene;
@@ -16,13 +15,10 @@ public class World : Node
 
 	}
 
-	public override void _Process(float delta)
+	public override void _Process(double delta)
 	{
 		//GD.Print(Engine.GetFramesPerSecond());
-		if (Input.IsKeyPressed((int)KeyList.R))
+		if (Input.IsKeyPressed(Key.R))
 			GetTree().ReloadCurrentScene();
 	}
-
 }
-
-

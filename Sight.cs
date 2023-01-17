@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Sight : Area2D
+public partial class Sight : Area2D
 {
 	//
 	public override void _Ready()

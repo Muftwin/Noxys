@@ -1,6 +1,6 @@
 using Godot;
 
-public class Bullet : KinematicBody2D
+public partial class Bullet : CharacterBody2D
 {
 	public float MaxDistance = 800;
 	private Vector2 originalPos;
@@ -13,13 +13,15 @@ public class Bullet : KinematicBody2D
 	public float lifeTime = 0;
 	public float maxLifeTime = 10;
 
-	public override void _PhysicsProcess(float delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		lifeTime += delta;
+		lifeTime += (float)delta;
 		if (style == Style.preset1)
 			updatePreset1();
 
-		MoveAndSlide(speed);
+		Velocity = speed;
+
+		MoveAndSlide();
 
 		if (lifeTime > maxLifeTime)
 			this.QueueFree();

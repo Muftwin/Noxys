@@ -1,16 +1,16 @@
 using System;
 using Godot;
-public class Player : KinematicBody2D
+public partial class Player : CharacterBody2D
 {
-    [Signal]
-    public delegate void Collide();
-    [Signal]
-    public delegate void Hit();
+    //[Signal]
+    //public delegate void Collide();
+    //[Signal]
+    //public delegate void Hit();
 
     public bool dead = false;
     public int facing = 1; //1 for right -1 for left
     public Character character = Character.ADOL;
-    public Godot.Sprite sprite;
+    public Godot.Sprite2D sprite;
     public Vector2 speed = new Vector2();
     public InputBuffer inputBuffer = new InputBuffer();
 
@@ -37,7 +37,7 @@ public class Player : KinematicBody2D
 
     public override void _Ready()
     {
-        sprite = this.GetNode<Godot.Sprite>("plrsprite");
+        sprite = this.GetNode<Godot.Sprite2D>("plrsprite");
 
         spawn[0] = this.Position.x;
         spawn[1] = this.Position.y;
@@ -47,9 +47,9 @@ public class Player : KinematicBody2D
         bull = new Bull(this);
     }
 
-    public override void _PhysicsProcess(float delta)
+    public override void _PhysicsProcess(double delta)
     {
-        inputBuffer.update(delta);
+        inputBuffer.update((float)delta);
 
         if (dead)
             return;
@@ -89,7 +89,10 @@ public class Player : KinematicBody2D
                 speed.x = Math.Max(0, speed.x - slowIncrement);
         }
 
-        speed.y += gravity * delta;
+        var vel = Velocity;
+        vel.y += gravity * (float)delta;
+        Velocity = vel;
+        //speed.y += gravity * delta;
         if (bat.slowFall && speed.y > 0)
             speed.y /= 1.25f;
 
@@ -103,19 +106,22 @@ public class Player : KinematicBody2D
         if (bull.dashing)
         {
             speed.y = 0;
-            MoveAndSlide(new Vector2(500 * facing, 0), UP);
+            Velocity = new Vector2(500 * facing, 0);
+            //MoveAndSlide(new Vector2(500 * facing, 0), UP);
         }
         else if (cat.climbing)
         {
-            speed = MoveAndSlide(new Vector2(speed.x, -50), UP);
+            Velocity = new Vector2(speed.x, -50);
+            //speed = MoveAndSlide(new Vector2(speed.x, -50), UP);
         }
         else
         {
-            speed = MoveAndSlide(speed, UP); //gravity
+            Velocity = speed;
+            //speed = MoveAndSlide(speed, UP); //gravity
         }
 
         //transforming
-        if (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W))
+        if (Input.IsKeyPressed(Key.Up) || Input.IsKeyPressed(Key.W))
         {
             bat.transform();
         }
@@ -129,10 +135,10 @@ public class Player : KinematicBody2D
         }
 
         //temp attack
-        if (Input.IsKeyPressed((int)KeyList.X))
+        if (Input.IsKeyPressed(Key.X))
         {
             PackedScene bulletScene = GD.Load<PackedScene>("res://shadowbullet.tscn");
-            Bullet bullet = (Bullet)bulletScene.Instance();
+            Bullet bullet = (Bullet)bulletScene.Instantiate();
             Owner.AddChild(bullet);
 
             bullet.Position = Position; //new Vector2(Position.x, Position.y);
@@ -141,12 +147,14 @@ public class Player : KinematicBody2D
 
         bat.passive();
         cat.passive();
-        bull.passive(delta);
+        bull.passive((float)delta);
+
+        MoveAndSlide();
     }
 
     public void setSprite(string path)
     {
-        sprite.Texture = ResourceLoader.Load(path) as Texture;
+        sprite.Texture = ResourceLoader.Load(path) as Texture2D;
     }
 
     public void _on_Enemy_body_entered(PhysicsBody2D body) //delete this?

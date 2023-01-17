@@ -1,5 +1,5 @@
 using Godot;
-public class Bull : Ability
+public partial class Bull : Ability
 {
     Player player;
     bool enabled = true; //allowed to use at all
