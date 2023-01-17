@@ -1,5 +1,5 @@
 using Godot;
-public class Bat : Ability
+public partial class Bat : Ability
 {
     Player player;
     bool enabled = true; //allowed to use at all
@@ -24,7 +24,7 @@ public class Bat : Ability
     }
     public void passive()
     {
-        slowFall = (Input.IsKeyPressed((int)KeyList.Up) || Input.IsKeyPressed((int)KeyList.W));
+        slowFall = (Input.IsKeyPressed(Key.Up) || Input.IsKeyPressed(Key.W));
         player.sprite.Rotation = 0; //this is dumb?
 
         if (!enabled || !currentTransform)

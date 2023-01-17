@@ -1,5 +1,5 @@
 using Godot;
-public class InputBuffer
+public partial class InputBuffer
 {
     //bool spaceWasDown = false;
 
@@ -24,7 +24,7 @@ public class InputBuffer
     {
         spaceLastUp += delta;
         spaceLastDown += delta;
-        if (Input.IsKeyPressed((int)KeyList.Space))
+        if (Input.IsKeyPressed(Key.Space))
             spaceLastDown = 0;
         else
         {
@@ -34,7 +34,7 @@ public class InputBuffer
 
         shiftLastUp += delta;
         shiftLastDown += delta;
-        if (Input.IsKeyPressed((int)KeyList.Shift))
+        if (Input.IsKeyPressed(Key.Shift))
             shiftLastDown = 0;
         else
         {
@@ -45,13 +45,13 @@ public class InputBuffer
         lastOnTheFloor += delta;
         leftLastUp += delta;
         rightLastUp += delta;
-        if (!Input.IsKeyPressed((int)KeyList.Left))
+        if (!Input.IsKeyPressed(Key.Left))
             leftLastUp = 0;
-        if (!Input.IsKeyPressed((int)KeyList.Right))
+        if (!Input.IsKeyPressed(Key.Right))
             rightLastUp = 0;
 
         leftMoreRecentThanRight = leftLastUp < rightLastUp;
 
-        //spaceWasDown = Input.IsKeyPressed((int)KeyList.Space); //do this last so we can check if it changed next time //do i actually need this?
+        //spaceWasDown = Input.IsKeyPressed(Key.Space); //do this last so we can check if it changed next time //do i actually need this?
     }
 }

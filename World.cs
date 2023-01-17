@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-
-public class World : Node
+public partial class World : Node
 {
 	[Export]
 	public PackedScene EnemyScene;
@@ -10,19 +9,24 @@ public class World : Node
 	// private int a = 2;
 	// private string b = "text";
 
-	// Called when the node enters the scene tree for the first time.
+	private PackedScene Scene { get; set; }
+
 	public override void _Ready()
 	{
+		Scene = GD.Load<PackedScene>("res://Scene.tscn");
 
+		AddChild(Scene.Instantiate());
 	}
 
-	public override void _Process(float delta)
+	public override void _Input(InputEvent @event)
 	{
 		//GD.Print(Engine.GetFramesPerSecond());
-		if (Input.IsKeyPressed((int)KeyList.R))
-			GetTree().ReloadCurrentScene();
+		if (Input.IsKeyPressed(Key.R))
+		{
+			foreach (Node child in GetChildren())
+				child.QueueFree();
+
+			AddChild(Scene.Instantiate());
+		}
 	}
-
 }
-
-
