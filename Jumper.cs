@@ -40,8 +40,8 @@ public partial class Jumper : CharacterBody2D
 	{
 		if (body.Name == "TileMap")
 			hasjumped = false;
-		if (body.Name == "Player")
-			EmitSignal("Hit");
+		//if (body.Name == "Player")
+			//EmitSignal("Hit");
 	}
 	public void _on_Sight_body_entered(Node2D body)
 	{
