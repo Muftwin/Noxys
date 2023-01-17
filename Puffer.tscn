@@ -1,32 +1,32 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://brqwqtveyohfs"]
 
-[ext_resource path="res://Puffer.cs" type="Script" id=1]
-[ext_resource path="res://SpikePuffer.png" type="Texture2D" id=2]
-[ext_resource path="res://Puffer.png" type="Texture2D" id=3]
+[ext_resource type="Script" path="res://Puffer.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://ck8570kqsowgx" path="res://SpikePuffer.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bxq13ncfrdugi" path="res://Puffer.png" id="3"]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id="1"]
 radius = 24.0
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [ExtResource("3"), ExtResource("2")],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 0.5
-} ]
+}]
 
 [node name="Puffer" type="Area2D"]
-position = Vector2( 24, -8 )
+position = Vector2(24, -8)
 gravity = 0.0
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.125015, 0.50008 )
-shape = SubResource( 1 )
+position = Vector2(0.125015, 0.50008)
+shape = SubResource("1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2( 0.125031, 0.500092 )
-scale = Vector2( 0.178889, 0.179578 )
-frames = SubResource( 2 )
+position = Vector2(0.125031, 0.500092)
+scale = Vector2(0.178889, 0.179578)
+frames = SubResource("2")
 
 [connection signal="body_entered" from="." to="." method="_on_Puffer_body_entered"]

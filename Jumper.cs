@@ -36,14 +36,14 @@ public partial class Jumper : CharacterBody2D
 		seen = false; //temp should do sight body exited?
 	}
 
-	public void _on_Hitbox_body_entered(PhysicsBody2D body)
+	public void _on_Hitbox_body_entered(Node2D body)
 	{
 		if (body.Name == "TileMap")
 			hasjumped = false;
 		if (body.Name == "Player")
 			EmitSignal("Hit");
 	}
-	public void _on_Sight_body_entered(PhysicsBody2D body)
+	public void _on_Sight_body_entered(Node2D body)
 	{
 
 		if (body.Name == "Player")

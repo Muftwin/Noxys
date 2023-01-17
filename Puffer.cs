@@ -37,7 +37,7 @@ public partial class Puffer : Area2D
 		}
 	}
 
-	public void _on_Puffer_body_entered(PhysicsBody2D body)
+	public void _on_Puffer_body_entered(Node2D body)
 	{
 		if (sprite.Frame == 1 && body.Name == "Player")
 		{

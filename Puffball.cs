@@ -17,7 +17,7 @@ public partial class Puffball : Area2D
 		this.Position += new Vector2(0, 200 * (float)delta);
 	}
 
-	public void _on_Puffball_body_entered(PhysicsBody2D body)
+	public void _on_Puffball_body_entered(Node2D body)
 	{
 		if (body.Name == "Player")
 		{
