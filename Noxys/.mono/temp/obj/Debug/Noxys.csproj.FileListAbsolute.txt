@@ -1,9 +1,0 @@
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\bin\Debug\Noxys.dll
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\bin\Debug\Noxys.pdb
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.csproj.AssemblyReference.cache
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.AssemblyInfoInputs.cache
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.AssemblyInfo.cs
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.csproj.CoreCompileInputs.cache
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.dll
-C:\Users\Owner\Documents\Noxys\Noxys\Noxys\.mono\temp\obj\Debug\Noxys.pdb
