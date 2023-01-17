@@ -97,7 +97,7 @@ public partial class Player : CharacterBody2D
         var vel = Velocity;
         vel.y += gravity * (float)delta;
         Velocity = vel;
-        //speed.y += gravity * delta;
+        speed.y += gravity * (float)delta;
         if (bat.slowFall && speed.y > 0)
             speed.y /= 1.25f;
 
