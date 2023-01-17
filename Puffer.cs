@@ -41,7 +41,7 @@ public partial class Puffer : Area2D
 	{
 		if (sprite.Frame == 1 && body.Name == "Player")
 		{
-			EmitSignal("Hit");
+			//EmitSignal("Hit");
 		}
 
 	}
