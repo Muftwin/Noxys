@@ -22,7 +22,7 @@ public partial class Puffball : Area2D
 		if (body.Name == "Player")
 		{
 			this.QueueFree();
-			EmitSignal("Hit");
+			//EmitSignal("Hit");
 		}
 	}
 }
