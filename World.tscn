@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxb1cw46ejxun"]
+[gd_scene load_steps=31 format=3 uid="uid://bxb1cw46ejxun"]
 
 [ext_resource type="PackedScene" uid="uid://56ch0ok8e5jk" path="res://Player.tscn" id="1"]
+[ext_resource type="Script" path="res://World.cs" id="1_vauij"]
 [ext_resource type="Texture2D" uid="uid://blsxlamuf01gr" path="res://Assets/Tropical biome.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://c8dtfv1q5jsfk" path="res://Assets/Background_brick.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cvurww5gkiofg" path="res://Assets/Block_environment.png" id="5"]
@@ -1115,6 +1116,7 @@ sources/20 = SubResource("TileSetAtlasSource_nj64p")
 sources/21 = SubResource("TileSetAtlasSource_51cf8")
 
 [node name="World3D" type="Node"]
+script = ExtResource("1_vauij")
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(456, 560)
