@@ -30,6 +30,8 @@ public partial class Player : CharacterBody2D
     Cat cat;
     Bull bull;
 
+    public bool InFanZone { get; set; }
+
     public enum Character
     {
         ADOL, CAT, BAT, BULL, DOLL, WIZARD, SKULL
@@ -62,6 +64,9 @@ public partial class Player : CharacterBody2D
             speed.y = JumpSpeed;
             inputBuffer.usedTheSpaceToJumpAlready = true;
         }
+
+        if (InFanZone)
+            Velocity -= new Vector2(0, 10);
 
         bool right = Input.IsActionPressed("ui_right");
         bool left = Input.IsActionPressed("ui_left");
