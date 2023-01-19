@@ -28,7 +28,7 @@ public partial class Bull : Ability
         }
 
         player.character = Player.Character.BULL;
-        player.setSprite("cow.png");
+        player.setSprite("Images/cow.png");
         currentTransform = true;
         return true;
     }

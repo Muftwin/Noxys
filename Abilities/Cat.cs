@@ -16,7 +16,7 @@ public partial class Cat : Ability
         if (!enabled) return;
 
         player.character = Player.Character.CAT;
-        player.setSprite("cat.png");
+        player.setSprite("Images/cat.png");
         currentTransform = true;
     }
     public void passive()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blsxlamuf01gr"
-path="res://.godot/imported/Tropical biome.png-90296f1961af8046b6a4a2914c81ad55.ctex"
+uid="uid://bqgt6yf3d7ujj"
+path="res://.godot/imported/skeleton.png-58f777663ed9a2946e0adca17e8f6cdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tropical biome.png"
-dest_files=["res://.godot/imported/Tropical biome.png-90296f1961af8046b6a4a2914c81ad55.ctex"]
+source_file="res://Images/skeleton.png"
+dest_files=["res://.godot/imported/skeleton.png-58f777663ed9a2946e0adca17e8f6cdb.ctex"]
 
 [params]
 

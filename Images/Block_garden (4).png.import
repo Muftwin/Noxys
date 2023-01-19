@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c74rk1weeyj5y"
-path="res://.godot/imported/Block_garden (2).png-56ee2f618c029f86b0f110a6dca0f551.ctex"
+uid="uid://b23xu37rbxesv"
+path="res://.godot/imported/Block_garden (4).png-9a62e10b07198b9f97257fc7d7c764c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Block_garden (2).png"
-dest_files=["res://.godot/imported/Block_garden (2).png-56ee2f618c029f86b0f110a6dca0f551.ctex"]
+source_file="res://Images/Block_garden (4).png"
+dest_files=["res://.godot/imported/Block_garden (4).png-9a62e10b07198b9f97257fc7d7c764c6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0aow0huwlbwc"
-path="res://.godot/imported/Jumper.png-ed16bae356cf72b85913dc0fffe932d8.ctex"
+uid="uid://bnvjb2h1dwl25"
+path="res://.godot/imported/Block_sand.png-bc8eadd77f3dac68121ae5fac0039045.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Jumper.png"
-dest_files=["res://.godot/imported/Jumper.png-ed16bae356cf72b85913dc0fffe932d8.ctex"]
+source_file="res://Images/Block_sand.png"
+dest_files=["res://.godot/imported/Block_sand.png-bc8eadd77f3dac68121ae5fac0039045.ctex"]
 
 [params]
 

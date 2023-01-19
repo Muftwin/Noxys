@@ -1,13 +1,13 @@
 [gd_scene load_steps=35 format=3 uid="uid://d4bsjpvd8sjjy"]
 
 [ext_resource type="Texture2D" uid="uid://c3ruhj108s1nw" path="res://icon.png" id="1_hh0kf"]
-[ext_resource type="PackedScene" uid="uid://56ch0ok8e5jk" path="res://Player.tscn" id="1_r8qob"]
+[ext_resource type="PackedScene" path="res://Player.tscn" id="1_r8qob"]
 [ext_resource type="Script" path="res://Fan.cs" id="2_rtrr4"]
 [ext_resource type="PackedScene" uid="uid://cpijli3c2v2mc" path="res://Jumper.tscn" id="2_y8rdw"]
 [ext_resource type="PackedScene" uid="uid://brqwqtveyohfs" path="res://Puffer.tscn" id="3_m7snw"]
-[ext_resource type="Texture2D" uid="uid://blsxlamuf01gr" path="res://Assets/Tropical biome.png" id="4_rcve6"]
-[ext_resource type="Texture2D" uid="uid://c8dtfv1q5jsfk" path="res://Assets/Background_brick.png" id="5_eyxud"]
-[ext_resource type="Texture2D" uid="uid://cvurww5gkiofg" path="res://Assets/Block_environment.png" id="6_b80q8"]
+[ext_resource type="Texture2D" uid="uid://blsxlamuf01gr" path="res://Images/Tropical biome.png" id="4_rcve6"]
+[ext_resource type="Texture2D" uid="uid://c8dtfv1q5jsfk" path="res://Images/Background_brick.png" id="5_eyxud"]
+[ext_resource type="Texture2D" uid="uid://cvurww5gkiofg" path="res://Images/Block_environment.png" id="6_b80q8"]
 [ext_resource type="Script" path="res://Area2D.cs" id="9_ukju8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0wl"]

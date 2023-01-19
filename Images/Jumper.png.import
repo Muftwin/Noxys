@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8dtfv1q5jsfk"
-path="res://.godot/imported/Background_brick.png-cfb002b79a49e77a006cf66a1d227fba.ctex"
+uid="uid://c0aow0huwlbwc"
+path="res://.godot/imported/Jumper.png-7d4e4df8fe0bca3b21b49935a027056d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background_brick.png"
-dest_files=["res://.godot/imported/Background_brick.png-cfb002b79a49e77a006cf66a1d227fba.ctex"]
+source_file="res://Images/Jumper.png"
+dest_files=["res://.godot/imported/Jumper.png-7d4e4df8fe0bca3b21b49935a027056d.ctex"]
 
 [params]
 

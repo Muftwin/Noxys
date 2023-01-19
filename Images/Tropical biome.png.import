@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btyl1w1fbqqcv"
-path="res://.godot/imported/cow.png-3bbc401f04bfea021fa6261e8faaeef5.ctex"
+uid="uid://blsxlamuf01gr"
+path="res://.godot/imported/Tropical biome.png-278d86d2cb62907e5209471c579983d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cow.png"
-dest_files=["res://.godot/imported/cow.png-3bbc401f04bfea021fa6261e8faaeef5.ctex"]
+source_file="res://Images/Tropical biome.png"
+dest_files=["res://.godot/imported/Tropical biome.png-278d86d2cb62907e5209471c579983d2.ctex"]
 
 [params]
 
