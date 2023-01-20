@@ -29,6 +29,7 @@ public partial class Player : CharacterBody2D
 	Bat bat;
 	Cat cat;
 	Bull bull;
+	Wizard wizard;
 
 	public bool InFanZone { get; set; }
 
@@ -47,6 +48,7 @@ public partial class Player : CharacterBody2D
 		bat = new Bat(this);
 		cat = new Cat(this);
 		bull = new Bull(this);
+		wizard = new Wizard(this);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -138,6 +140,10 @@ public partial class Player : CharacterBody2D
 		{
 			cat.transform();
 		}
+		if (Input.IsKeyPressed(Key.Down) || Input.IsKeyPressed(Key.S))
+		{
+			wizard.transform();
+		}
 
 		//temp attack
 		if (Input.IsKeyPressed(Key.X))
@@ -153,6 +159,7 @@ public partial class Player : CharacterBody2D
 		bat.passive();
 		cat.passive();
 		bull.passive((float)delta);
+		wizard.passive();
 
 		MoveAndSlide();
 	}

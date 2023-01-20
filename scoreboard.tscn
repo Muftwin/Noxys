@@ -8,6 +8,7 @@ anchors_preset = 0
 script = ExtResource("1_ehfrn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 526.0
 offset_top = 57.0
 offset_right = 566.0
@@ -15,11 +16,13 @@ offset_bottom = 97.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0.486275)
+layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 650.0
 color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 473.0
 offset_top = 20.0
 offset_right = 657.0
@@ -28,13 +31,13 @@ text = "ScoreBoard
 "
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 462.0
 offset_top = 351.0
 offset_right = 502.0
 offset_bottom = 391.0
 
 [node name="New Game" type="Button" parent="HBoxContainer2"]
-offset_right = 88.0
-offset_bottom = 40.0
+layout_mode = 2
 text = "New Level 
 "

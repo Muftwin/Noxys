@@ -20,7 +20,7 @@ public partial class Scoreboard : Control
 			GetTree().ChangeSceneToFile("res://Scene.tscn");
 
 
-        }
+		}
 
 		
 	}
