@@ -1,0 +1,224 @@
+[gd_scene load_steps=7 format=3 uid="uid://be5mi3o305txm"]
+
+[ext_resource type="Script" path="res://Button.cs" id="1"]
+[ext_resource type="FontFile" uid="uid://dlndifygwnf6h" path="res://Level Menu/ARIAL.TTF" id="2_4gyi2"]
+[ext_resource type="Texture2D" uid="uid://dalp8hg6eg83o" path="res://Level Menu/Unlocked Level.png" id="3"]
+[ext_resource type="Script" path="res://Level_Menu.cs" id="4"]
+
+[sub_resource type="Theme" id="1"]
+
+[sub_resource type="Theme" id="6"]
+
+[node name="Level_Menu" type="Node2D"]
+position = Vector2(-24, 0)
+script = ExtResource("4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 224.0
+offset_right = 824.0
+offset_bottom = 600.0
+color = Color(0.161743, 0.828125, 0.750033, 1)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 416.0
+offset_top = 24.0
+offset_right = 648.0
+offset_bottom = 64.0
+theme = SubResource("1")
+text = "Level Select"
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="Buttons"]
+offset_left = 288.0
+offset_top = 104.0
+offset_right = 432.0
+offset_bottom = 246.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "1"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Button2" type="Button" parent="Buttons"]
+offset_left = 451.0
+offset_top = 104.0
+offset_right = 595.0
+offset_bottom = 246.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "2"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Button3" type="Button" parent="Buttons"]
+offset_left = 615.0
+offset_top = 104.0
+offset_right = 759.0
+offset_bottom = 246.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "3"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Button4" type="Button" parent="Buttons"]
+offset_left = 288.0
+offset_top = 252.0
+offset_right = 432.0
+offset_bottom = 394.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "4"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Button5" type="Button" parent="Buttons"]
+offset_left = 451.0
+offset_top = 252.0
+offset_right = 595.0
+offset_bottom = 394.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "5"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Button6" type="Button" parent="Buttons"]
+offset_left = 615.0
+offset_top = 252.0
+offset_right = 759.0
+offset_bottom = 394.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "6"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Button7" type="Button" parent="Buttons"]
+offset_left = 288.0
+offset_top = 406.0
+offset_right = 432.0
+offset_bottom = 548.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "7"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Button8" type="Button" parent="Buttons"]
+offset_left = 451.0
+offset_top = 406.0
+offset_right = 595.0
+offset_bottom = 548.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "8"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Button9" type="Button" parent="Buttons"]
+offset_left = 615.0
+offset_top = 406.0
+offset_right = 759.0
+offset_bottom = 548.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("6")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "9"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+script = ExtResource("1")
+theme_override_fonts/font = ExtResource("2_4gyi2")
+theme_override_font_sizes/font_size = 32
+
+[connection signal="child_entered_tree" from="." to="." method="_on_Level_Menu_child_entered_tree"]
+[connection signal="mouse_entered" from="Buttons/Button" to="Buttons/Button" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button" to="Buttons/Button" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button" to="Buttons/Button" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Button2" to="Buttons/Button2" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button2" to="Buttons/Button2" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button2" to="Buttons/Button2" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Button3" to="Buttons/Button3" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button3" to="Buttons/Button3" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button3" to="Buttons/Button3" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Button4" to="Buttons/Button4" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button4" to="Buttons/Button4" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button4" to="Buttons/Button4" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Button5" to="Buttons/Button5" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button5" to="Buttons/Button5" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button5" to="Buttons/Button5" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Button6" to="Buttons/Button6" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button6" to="Buttons/Button6" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button6" to="Buttons/Button6" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Button7" to="Buttons/Button7" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button7" to="Buttons/Button7" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button7" to="Buttons/Button7" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Button8" to="Buttons/Button8" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button8" to="Buttons/Button8" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button8" to="Buttons/Button8" method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Button9" to="Buttons/Button9" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button9" to="Buttons/Button9" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button9" to="Buttons/Button9" method="_on_Button_pressed"]
