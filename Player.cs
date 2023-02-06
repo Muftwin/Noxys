@@ -178,6 +178,31 @@ public partial class Player : CharacterBody2D
 			dead = true;
 		}
 	}
+
+	public void transform(Character character)
+	{
+		switch (character)
+		{
+			case Character.ADOL:
+				break;
+			case Character.CAT:
+				cat.transform();
+				break;
+			case Character.BAT:
+				bat.transform();
+				break;
+			case Character.BULL:
+				bull.transform();
+				break;
+			case Character.DOLL:
+				break;
+			case Character.WIZARD:
+				wizard.transform();
+				break;
+			case Character.SKULL:
+				break;
+		}
+	}
 }
 
 
