@@ -1190,9 +1190,10 @@ position = Vector2(343, 502)
 shape = SubResource("CircleShape2D_ja5r0")
 
 [node name="CharacterChangeBeam" parent="." instance=ExtResource("10_01a1s")]
-position = Vector2(593, 448)
+position = Vector2(670, 448)
 collision_mask = 2
 characterToChangeInto = 2
+heightpx = 600
 
 [node name="Control" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0.419608)
