@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d4bsjpvd8sjjy"]
+[gd_scene load_steps=36 format=3 uid="uid://d4bsjpvd8sjjy"]
 
 [ext_resource type="Script" path="res://Scene.cs" id="1_8apj6"]
 [ext_resource type="Texture2D" uid="uid://c3ruhj108s1nw" path="res://icon.png" id="1_hh0kf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://blsxlamuf01gr" path="res://Images/Tropical biome.png" id="4_rcve6"]
 [ext_resource type="Texture2D" uid="uid://c8dtfv1q5jsfk" path="res://Images/Background_brick.png" id="5_eyxud"]
 [ext_resource type="Texture2D" uid="uid://cvurww5gkiofg" path="res://Images/Block_environment.png" id="6_b80q8"]
+[ext_resource type="PackedScene" uid="uid://dharijj1h07gm" path="res://CharacterChangeBeam.tscn" id="10_01a1s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0wl"]
 size = Vector2(61, 237)
@@ -1187,6 +1188,12 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(343, 502)
 shape = SubResource("CircleShape2D_ja5r0")
+
+[node name="CharacterChangeBeam" parent="." instance=ExtResource("10_01a1s")]
+position = Vector2(670, 448)
+collision_mask = 2
+characterToChangeInto = 2
+heightpx = 600
 
 [node name="Control" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0.419608)
