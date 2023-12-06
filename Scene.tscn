@@ -1,7 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://d4bsjpvd8sjjy"]
+[gd_scene load_steps=35 format=3 uid="uid://d4bsjpvd8sjjy"]
 
 [ext_resource type="Script" path="res://Scene.cs" id="1_8apj6"]
-[ext_resource type="Texture2D" uid="uid://c3ruhj108s1nw" path="res://icon.png" id="1_hh0kf"]
 [ext_resource type="PackedScene" uid="uid://bqm3hbm432q5k" path="res://Player.tscn" id="1_r8qob"]
 [ext_resource type="Script" path="res://Fan.cs" id="2_rtrr4"]
 [ext_resource type="PackedScene" uid="uid://cpijli3c2v2mc" path="res://Jumper.tscn" id="2_y8rdw"]
@@ -1148,7 +1147,6 @@ script = ExtResource("1_8apj6")
 
 [node name="Fan" type="Sprite2D" parent="."]
 position = Vector2(301, 600)
-texture = ExtResource("1_hh0kf")
 script = ExtResource("2_rtrr4")
 
 [node name="Player" parent="Fan" instance=ExtResource("1_r8qob")]

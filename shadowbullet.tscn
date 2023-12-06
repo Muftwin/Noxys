@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://0sqsyqg8t3es"]
 
-[ext_resource type="Texture2D" uid="uid://i0b87v705abu" path="res://shadowbullet.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://i0b87v705abu" path="res://Images/shadowbullet.png" id="1"]
 [ext_resource type="Script" path="res://Bullet.cs" id="2"]
+
 
 [node name="Shadowbullet" type="CharacterBody2D"]
 script = ExtResource("2")

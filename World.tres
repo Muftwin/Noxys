@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=26 format=3 uid="uid://br14lu1mx6cf0"]
 
-[ext_resource type="Texture2D" uid="uid://c8dtfv1q5jsfk" path="res://Assets/Background_brick.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://cvurww5gkiofg" path="res://Assets/Block_environment.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://blsxlamuf01gr" path="res://Assets/Tropical biome.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c8dtfv1q5jsfk" path="res://Images/Background_brick.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cvurww5gkiofg" path="res://Images/Block_environment.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://blsxlamuf01gr" path="res://Images/Tropical biome.png" id="3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j40ye"]
 texture = ExtResource("3")

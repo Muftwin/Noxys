@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de35kur4dmni6"
-path="res://.godot/imported/Fungal spore (2).png-778a58261d305bb8f0daa4cee917e029.ctex"
+uid="uid://ck8570kqsowgx"
+path="res://.godot/imported/SpikePuffer.png-097fd25dcfafe7fe6599982ab8e7f713.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fungal spore (2).png"
-dest_files=["res://.godot/imported/Fungal spore (2).png-778a58261d305bb8f0daa4cee917e029.ctex"]
+source_file="res://Images/SpikePuffer.png"
+dest_files=["res://.godot/imported/SpikePuffer.png-097fd25dcfafe7fe6599982ab8e7f713.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

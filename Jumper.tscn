@@ -1,11 +1,33 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpijli3c2v2mc"]
 
-[ext_resource type="Script" path="res://Sight.cs" id="1"]
-[ext_resource type="Texture2D" uid="uid://c0aow0huwlbwc" path="res://Assets/Jumper.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c0aow0huwlbwc" path="res://Images/Jumper.png" id="2"]
 [ext_resource type="Script" path="res://Jumper.cs" id="3"]
 
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(53, 69)
+
+[sub_resource type="CSharpScript" id="CSharpScript_wxcos"]
+script/source = "using Godot;
+using System;
+
+public partial class Sight : Area2D
+{
+	//
+	public override void _Ready()
+	{
+		
+	}
+
+
+//  public override void _Process(float delta)
+//  {
+//      
+//  }
+}
+
+
+
+"
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 54.0
@@ -30,7 +52,7 @@ texture = ExtResource("2")
 position = Vector2(0.388889, -0.167446)
 scale = Vector2(0.388889, 0.373333)
 collision_mask = 3
-script = ExtResource("1")
+script = SubResource("CSharpScript_wxcos")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Sight"]
 position = Vector2(-1, -0.0514841)

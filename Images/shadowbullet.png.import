@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqpfublceokkn"
-path="res://.godot/imported/Fungal spore (3).png-ccf5f9f8757613d2ab478829857fb84e.ctex"
+uid="uid://i0b87v705abu"
+path="res://.godot/imported/shadowbullet.png-ddaf98c9dad27bab7ae46c16162bde47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fungal spore (3).png"
-dest_files=["res://.godot/imported/Fungal spore (3).png-ccf5f9f8757613d2ab478829857fb84e.ctex"]
+source_file="res://Images/shadowbullet.png"
+dest_files=["res://.godot/imported/shadowbullet.png-ddaf98c9dad27bab7ae46c16162bde47.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

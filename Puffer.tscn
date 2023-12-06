@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://brqwqtveyohfs"]
 
 [ext_resource type="Script" path="res://Puffer.cs" id="1"]
-[ext_resource type="Texture2D" uid="uid://ck8570kqsowgx" path="res://SpikePuffer.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bxq13ncfrdugi" path="res://Puffer.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ck8570kqsowgx" path="res://Images/SpikePuffer.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bxq13ncfrdugi" path="res://Images/Puffer.png" id="3"]
+
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 24.0

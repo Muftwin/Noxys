@@ -15,17 +15,17 @@ public partial class Scene : Node
 
 		if (_control.Visible == false)
 		{
-			GD.Print("Scoreboard is Invisisble");
+			//GD.Print("Scoreboard is Invisible");
 		}
 		else {
-			GD.Print("Scoreboard is visible"); 
+			//GD.Print("Scoreboard is visible"); 
 		}
 	}
 	
 	private void _on_area_2d_body_entered(Node2D body)
 	{
 		_control.Visible = true;
-		GD.Print("Entered");
+		//GD.Print("Entered");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
