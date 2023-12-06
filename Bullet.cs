@@ -36,14 +36,14 @@ public partial class Bullet : CharacterBody2D
 	{
 		style = Style.preset1;
 		this.facing = facing;
-		speed.x = facing * 50;
+		speed[0] = facing * 50;
 
 	}
 
 	public void updatePreset1()
 	{
-		speed.x = facing * 100 * Mathf.Sin(lifeTime);
-		speed.y = facing * 100 * Mathf.Cos(lifeTime);
+		speed[0] = facing * 100 * Mathf.Sin(lifeTime);
+		speed[1] = facing * 100 * Mathf.Cos(lifeTime);
 	}
 
 	public void setPreset2()

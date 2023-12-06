@@ -42,8 +42,8 @@ public partial class Player : CharacterBody2D
 	{
 		sprite = this.GetNode<Godot.Sprite2D>("plrsprite");
 
-		spawn[0] = this.Position.x;
-		spawn[1] = this.Position.y;
+		spawn[0] = this.Position[0];
+		spawn[1] = this.Position[1];
 
 		bat = new Bat(this);
 		cat = new Cat(this);
@@ -59,11 +59,11 @@ public partial class Player : CharacterBody2D
 			return;
 
 		bool jump = (inputBuffer.spaceLastDown <= jumpBufferLength * delta && !inputBuffer.usedTheSpaceToJumpAlready && IsOnFloor());
-		bool coyoteJump = (inputBuffer.spaceLastDown <= jumpBufferLength * delta && coyoteTimeLength * delta >= inputBuffer.lastOnTheFloor && this.Position.y >= inputBuffer.yCoordinateLastOnTheFloor);
+		bool coyoteJump = (inputBuffer.spaceLastDown <= jumpBufferLength * delta && coyoteTimeLength * delta >= inputBuffer.lastOnTheFloor && this.Position[1] >= inputBuffer.yCoordinateLastOnTheFloor);
 
 		if (jump || coyoteJump)
 		{
-			speed.y = JumpSpeed;
+			speed[1] = JumpSpeed;
 			inputBuffer.usedTheSpaceToJumpAlready = true;
 		}
 
@@ -74,52 +74,52 @@ public partial class Player : CharacterBody2D
 		bool left = Input.IsActionPressed("ui_left");
 		if (right && (!left || !inputBuffer.leftMoreRecentThanRight))
 		{
-			if (speed.x >= 0)
-				speed.x = Math.Min(speed.x + walkIncrement, maxWalkSpeed);
+			if (speed[0] >= 0)
+				speed[0] = Math.Min(speed[0] + walkIncrement, maxWalkSpeed);
 			else //if you were going left slow down faster
-				speed.x = Math.Min(speed.x + slowIncrement, maxWalkSpeed);
+				speed[0] = Math.Min(speed[0] + slowIncrement, maxWalkSpeed);
 			facing = 1;
 		}
 		if (left && (!right || inputBuffer.leftMoreRecentThanRight))
 		{
-			if (speed.x <= 0)
-				speed.x = Math.Max(speed.x - walkIncrement, -maxWalkSpeed);
+			if (speed[0] <= 0)
+				speed[0] = Math.Max(speed[0] - walkIncrement, -maxWalkSpeed);
 			else
-				speed.x = Math.Max(speed.x - slowIncrement, -maxWalkSpeed);
+				speed[0] = Math.Max(speed[0] - slowIncrement, -maxWalkSpeed);
 			facing = -1;
 		}
 		if (!right && !left)
 		{
-			if (speed.x < 0)
-				speed.x = Math.Min(0, speed.x + slowIncrement);
-			else if (speed.x > 0)
-				speed.x = Math.Max(0, speed.x - slowIncrement);
+			if (speed[0] < 0)
+				speed[0] = Math.Min(0, speed[0] + slowIncrement);
+			else if (speed[0] > 0)
+				speed[0] = Math.Max(0, speed[0] - slowIncrement);
 		}
 
 		var vel = Velocity;
-		vel.y += gravity * (float)delta;
+		vel[1] += gravity * (float)delta;
 		Velocity = vel;
-		speed.y += gravity * (float)delta;
-		if (bat.slowFall && speed.y > 0)
-			speed.y /= 1.25f;
+		speed[1] += gravity * (float)delta;
+		if (bat.slowFall && speed[1] > 0)
+			speed[1] /= 1.25f;
 
 		if (IsOnFloor()) //Should this be inside input buffer? rn input buffer doesnt depend on player, but...idk
 		{
 			inputBuffer.lastOnTheFloor = 0;
-			inputBuffer.yCoordinateLastOnTheFloor = this.Position.y;
+			inputBuffer.yCoordinateLastOnTheFloor = this.Position[1];
 		}
 
 		//movement
 		if (bull.dashing)
 		{
-			speed.y = 0;
+			speed[1] = 0;
 			Velocity = new Vector2(500 * facing, 0);
 			//MoveAndSlide(new Vector2(500 * facing, 0), UP);
 		}
 		else if (cat.climbing)
 		{
-			Velocity = new Vector2(speed.x, -50);
-			//speed = MoveAndSlide(new Vector2(speed.x, -50), UP);
+			Velocity = new Vector2(speed[0], -50);
+			//speed = MoveAndSlide(new Vector2(speed[0], -50), UP);
 		}
 		else
 		{
@@ -152,7 +152,7 @@ public partial class Player : CharacterBody2D
 			var bullet = bulletScene.Instantiate<Bullet>();
 			Owner.AddChild(bullet);
 
-			bullet.Position = Position; //new Vector2(Position.x, Position.y);
+			bullet.Position = Position; //new Vector2(Position[0], Position[1]);
 			bullet.setPreset1(facing);
 		}
 

@@ -5,9 +5,6 @@ public partial class World : Node
 {
 	[Export]
 	public PackedScene EnemyScene;
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
 
 	private PackedScene Scene { get; set; }
 

@@ -30,7 +30,7 @@ public partial class Puffer : Area2D
 
 			Puffball ball  = (Puffball)Puffscence.Instantiate();
 			Owner.AddChild(ball);
-			ball.Position = new Vector2(this.Position.x, this.Position.y + 10);
+			ball.Position = new Vector2(this.Position[0], this.Position[1] + 10);
 
 			time = 0;
 

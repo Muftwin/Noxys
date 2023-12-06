@@ -20,14 +20,14 @@ public partial class Jumper : CharacterBody2D
 	{
 		deltag = delta;
 		//MoveAndCollide(new Vector2(0, gravity * delta));
-		speed.y += gravity * (float)delta;
+		speed[1] += gravity * (float)delta;
 
 		Velocity = speed;
 
 		if (seen && !hasjumped)
 		{
 			hasjumped = true;
-			speed.y = jumpSpeed;
+			speed[1] = jumpSpeed;
 		}
 
 		//speed = MoveAndSlide(speed, new Vector2(0, -1)); //gravity
